@@ -1,0 +1,101 @@
+﻿<Window x:Class="HangMan.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HangMan"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+
+        Title="Simple Hangman" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <materialDesign:Card Padding="32" Margin="16">
+                <Image Width="100" Height="200" Source="{Binding HangmanImage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </materialDesign:Card>
+
+            <materialDesign:Card Padding="32" Margin="16" Grid.Column="1" VerticalAlignment="Center">
+                <ItemsControl ItemsSource="{Binding SecretWord}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" Margin="5"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  VerticalAlignment="Center">
+                <TextBlock Text="{Binding SecretWord[0]}" Margin="5"/>
+                <TextBlock Text="{Binding SecretWord[1]}" Margin="5"/>
+                <TextBlock Text="{Binding SecretWord[2]}" Margin="5"/>
+                <TextBlock Text="{Binding SecretWord[3]}" Margin="5"/>
+                <TextBlock Text="{Binding SecretWord[4]}" Margin="5"/>
+                <TextBlock Text="{Binding SecretWord[5]}" Margin="5"/>
+                <TextBlock Text="{Binding SecretWord[6]}" Margin="5"/>
+                <TextBlock Text="{Binding SecretWord[7]}" Margin="5"/>
+           </StackPanel>-->
+                </materialDesign:Card>
+
+           
+        </Grid>
+
+
+        <StackPanel Orientation="Vertical" Grid.Row="1" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="A" Command="{Binding CheckLetterCommand}" CommandParameter="A" Margin="2"/>
+                <Button Content="B" Command="{Binding CheckLetterCommand}" CommandParameter="B" Margin="2"/>
+                <Button Content="C" Command="{Binding CheckLetterCommand}" CommandParameter="C" Margin="2"/>
+                <Button Content="D" Command="{Binding CheckLetterCommand}" CommandParameter="D" Margin="2"/>
+                <Button Content="E" Command="{Binding CheckLetterCommand}" CommandParameter="E" Margin="2"/>
+                <Button Content="F" Command="{Binding CheckLetterCommand}" CommandParameter="F" Margin="2"/>
+                <Button Content="G" Command="{Binding CheckLetterCommand}" CommandParameter="G" Margin="2"/>
+                <Button Content="H" Command="{Binding CheckLetterCommand}" CommandParameter="H" Margin="2"/>
+                <Button Content="I" Command="{Binding CheckLetterCommand}" CommandParameter="I" Margin="2"/>
+                <Button Content="J" Command="{Binding CheckLetterCommand}" CommandParameter="J" Margin="2"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="K" Command="{Binding CheckLetterCommand}" CommandParameter="K" Margin="2"/>
+                <Button Content="L" Command="{Binding CheckLetterCommand}" CommandParameter="L" Margin="2"/>
+                <Button Content="M" Command="{Binding CheckLetterCommand}" CommandParameter="M" Margin="2"/>
+                <Button Content="N" Command="{Binding CheckLetterCommand}" CommandParameter="N" Margin="2"/>
+                <Button Content="O" Command="{Binding CheckLetterCommand}" CommandParameter="O" Margin="2"/>
+                <Button Content="P" Command="{Binding CheckLetterCommand}" CommandParameter="P" Margin="2"/>
+                <Button Content="Q" Command="{Binding CheckLetterCommand}" CommandParameter="Q" Margin="2"/>
+                <Button Content="R" Command="{Binding CheckLetterCommand}" CommandParameter="R" Margin="2"/>
+                <Button Content="S" Command="{Binding CheckLetterCommand}" CommandParameter="S" Margin="2"/>
+                <Button Content="T" Command="{Binding CheckLetterCommand}" CommandParameter="T" Margin="2"/>
+                <Button Content="U" Command="{Binding CheckLetterCommand}" CommandParameter="U" Margin="2"/>
+                <Button Content="V" Command="{Binding CheckLetterCommand}" CommandParameter="V" Margin="2"/>
+                <Button Content="W" Command="{Binding CheckLetterCommand}" CommandParameter="W" Margin="2"/>
+                <Button Content="X" Command="{Binding CheckLetterCommand}" CommandParameter="X" Margin="2"/>
+                <Button Content="Y" Command="{Binding CheckLetterCommand}" CommandParameter="Y" Margin="2"/>
+                <Button Content="Z" Command="{Binding CheckLetterCommand}" CommandParameter="Z" Margin="2"/>
+            </StackPanel>
+        </StackPanel>
+
+
+    </Grid>
+</Window>
